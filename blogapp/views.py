@@ -11,13 +11,8 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def index(request):
-    bloglist = [1,2,3,4,5,6,7,8,9]
-    return render(request,'index.html',{'bloglist':bloglist})
+    return render(request, 'index.html')
 
-# Selected Bolg
-
-def selected_blog(request):
-    return render(request,'single-standard.html')
 
 # ---------- Registration -------------
 
