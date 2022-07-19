@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
-from .models import Blog,Title,Category
+from .models import Blog,Title,Category,Comment
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
@@ -17,6 +17,10 @@ def index(request):
 
 def selected_blog(request,id):
     fullblog = Blog.objects.get(id=id)
+    if request.method =='POST':
+        comment = request.POST['comment']
+        Comment.objects.create(post=fullblog,name = request.user,body=comment)
+        print(comment)
     return render(request,'single-standard.html',{'fullblog':fullblog})
 
 # Upload Blog
