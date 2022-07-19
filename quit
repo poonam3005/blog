@@ -1,0 +1,27 @@
+[1mdiff --cc blogapp/__pycache__/urls.cpython-310.pyc[m
+[1mindex 210e9f3,af3cbe9..0000000[m
+Binary files differ
+[1mdiff --cc blogapp/__pycache__/views.cpython-310.pyc[m
+[1mindex 328fdba,ff62596..0000000[m
+Binary files differ
+[1mdiff --cc blogapp/urls.py[m
+[1mindex e9be446,1c2987e..0000000[m
+[1m--- a/blogapp/urls.py[m
+[1m+++ b/blogapp/urls.py[m
+[36m@@@ -6,6 -6,6 +6,5 @@@[m [murlpatterns = [m
+      path('registration', views.registration, name='registration' ),[m
+      path('login', views.loginuser, name='login' ),[m
+      path('logout', views.logoutuser, name='logout' ),[m
+[31m-     path('search', views.searchbar, name='search' ),[m
+[31m-     path('selected_blog', views.selected_blog,name='selected_blog'),[m
+[31m -    path('selected_blog/<id>', views.selected_blog,name='selected_blog'),[m
+[31m -    path('upload-blog',views.upload_blog,name='upload-blog')[m
+[32m++[m
+  ][m
+[1mdiff --cc db.sqlite3[m
+[1mindex ffdf477,afc63ac..0000000[m
+Binary files differ
+[1mdiff --cc media/static/download.jpg[m
+[1mindex 11f038b,6b19702..0000000[m
+[1mdeleted file mode 100644,100644[m
+Binary files differ

@@ -66,4 +66,4 @@ def searchbar(request):
     else:
         # If not searched, return default posts
         posts = Blog.objects.all().order_by("-date")
-    return render(request, 'index.html', {'posts':post})
+    return render(request, 'index.html', {'posts':posts})
