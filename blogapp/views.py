@@ -4,10 +4,12 @@ import django
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
+
+from blogapp.models import Blog
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
+from django.db.models import Q
 # Create your views here.
 
 def index(request):
@@ -56,3 +58,12 @@ def loginuser(request):
 def logoutuser(request):
     logout(request)
     return render(request, 'login.html')
+
+def searchbar(request):
+    search_post = request.GET.get('search')
+    if search_post:
+        posts = Blog.objects.filter(Q(title__icontains=search_post) & Q(content__icontains=search_post))
+    else:
+        # If not searched, return default posts
+        posts = Blog.objects.all().order_by("-date")
+    return render(request, 'index.html', {'posts':post})
