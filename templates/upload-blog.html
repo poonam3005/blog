@@ -18,6 +18,12 @@
         ================================================== -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/vendor.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+            tinymce.init({
+              selector: '#mytextarea'
+            });
+          </script>
     
         <!-- script
         ================================================== -->
@@ -142,7 +148,7 @@
                                         </div>
     
                                         <div class="message form-field">
-                                            <textarea name="Desc" id="Desc" class="h-full-width" placeholder="Your Description" ></textarea>
+                                            <textarea name="Desc" id="mytextarea" class="h-full-width" placeholder="Your Description" ></textarea>
                                         </div>
 
                                         <div class="form-field">

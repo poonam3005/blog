@@ -1,8 +1,6 @@
-from turtle import mode
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ImageField
-
 from tinymce.models import HTMLField
 # Create your models here.
 
@@ -42,4 +40,4 @@ class Comment(models.Model):
     date_added = models.DateField(auto_now=True)
 
     def __str__(self):
-        return '%s-%s' % (self.post.title,self.name)
+        return '%s-%s-%s' % (self.id,self.post.title,self.name)

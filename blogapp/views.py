@@ -6,7 +6,7 @@ from .forms import CreateUserForm
 from .models import Blog,Title,Category,Comment
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
+from django.db.models import Q
 # Create your views here.
 
 def index(request):
@@ -48,6 +48,14 @@ def like_blog(request,id):
         return redirect('selected_blog',id)
         # return HttpResponseRedirect(reverse('selected_blog',args=[str(id)]))
 
+# Search Button
+
+def search(request):
+    if request.method =='POST':
+        searchTxt = request.POST['search']
+        search = Blog.objects.filter(Q(title__title__icontains=searchTxt)|Q(author__username__icontains=searchTxt)|Q(category__category__icontains=searchTxt)|Q(keyword__icontains=searchTxt))
+        print(search)
+    return render(request,'index.html',{'bloglist':search})
 # Upload Blog
 
 def upload_blog(request):
@@ -106,4 +114,4 @@ def loginuser(request):
 
 def logoutuser(request):
     logout(request)
-    return render(request, 'login.html')
+    return redirect('login')
