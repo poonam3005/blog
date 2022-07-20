@@ -27,7 +27,10 @@ class Blog(models.Model):
     keyword = models.CharField(max_length=50, blank=True, null=True)
     image = models.ImageField(upload_to='static', null=True,blank=True)
     date = models.DateField( auto_now=True)
-    likes = models.IntegerField(null=True,blank=True)
+    likes = models.ManyToManyField(User, related_name='blog_post')
+
+    def total_likes(self):
+        return self.likes.count()
 
     def __str__(self) :
         return str(self.id)

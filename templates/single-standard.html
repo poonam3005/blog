@@ -144,7 +144,18 @@
                         <div class="s-content__entry-content">
 
                             <p class="lead">{{fullblog.Desc}}</p> 
-    
+                            <form method="post" action="{% url 'like_blog' fullblog.id %}">
+                                {% csrf_token %}
+
+                                {% if liked %}
+                                <button type="submit" name="post_id" value="{{fullblog.id}}" style="background-color: pink;">UnLike</button>
+                                {% else %}
+                                <button type="submit" name="post_id" value="{{fullblog.id}}">Like</button> 
+                                {% endif %}
+                                
+                                {{total_likes}}
+            
+                            </form>
                         </div> <!-- end s-entry__entry-content -->
 
                         <div class="s-content__entry-meta">
@@ -175,7 +186,7 @@
                                     <span class="tagtext">Tags</span>
                                     <p>{{fullblog.keyword}}</p>
                                 </div>
-
+                                
                             </div>
 
                         </div> <!-- s-content__entry-meta -->
@@ -217,8 +228,7 @@
                                     </div>
                                 </div>
 
-                                <div class="comment__text">
-                                <p>{{comment.body}}</div>
+                                <div class="comment__text"><p>{{comment.body}}</p></div>
                             {% endfor %}
                             </div>
 
