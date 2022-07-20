@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create</title>
+</head>
+<body>
+    <h2>Employee Details</h2>
+
+    <form action="" method = "POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {% comment %} <div class="form-group row">
+          <label for="id">Emp_Id</label>
+          <input type="text" class="form-control" name="id" id="id" value="{{e.id}}">
+        </div> {% endcomment %}
+        <div class="form-group row">
+            <label for="title"> Title</label>
+            <input type="text" class="form-control" name="title" id="title" value="{{b1.title}}">
+        </div>
+        
+        <div class="form-group row">
+            <label for="category"> category</label>
+            <input type="text" class="form-control" name="category" id="category" value="{{b1.category}}">
+        </div>
+
+        <div class="form-group row">
+            <label for="bday"> Bday</label>
+            <input type="date" class="form-control" name="bday" id="bday" value="{{e.bday}}">{{e.bday}}
+        </div>
+
+       
+        
+            
+   
+
+
+        <div class="form-group row">
+            <label for="image"> Image</label>
+            <input type="file" class="form-control" name="image" id="image" value="image" 
+            {% if e.image %}<img src="{{ e.image.url }}">{% endif %}{{e.image}}
+                    </div>
+
+        <div class="form-group row">
+            <label for="address"> Address</label>
+            <input type="text" class="form-control" name="address" id="address" value="{{e.address}}">
+        </div>
+
+
+        <button type="btnAdd" class="btn btn-primary">Submit</button>
+      </form>
+</body>
+</html>

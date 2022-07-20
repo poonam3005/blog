@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 
@@ -43,6 +43,33 @@ def upload_blog(request):
 
     return render(request,'upload-blog.html')
 
+
+def update(request, id):
+    b = Blog.objects.get(id=id)
+
+    if request.method=="POST":
+        b.delete()
+        
+        
+        title=request.POST.get('title')
+        category=request.POST.get('category')
+        desc=request.POST.get('desc')
+        entryTxt = request.POST.get['entryTxt']
+        keyword=request.POST.get('keyword')
+        image = request.FILES.get('image')
+
+        b1=Blog(title=title,category=category,desc=desc,keyword=keyword,entryTxt=entryTxt,image=image)
+        b1.save()
+        return redirect('/')
+    else:
+        return render(request, "update.html",{'b1': b1})
+
+
+def delete(request, id):
+    e = Blog.objects.get(id=id)
+    e.delete()
+    return HttpResponseRedirect('/')
+
 # ---------- Registration -------------
 
 def registration(request):
@@ -81,10 +108,12 @@ def logoutuser(request):
     logout(request)
     return render(request, 'login.html')
 
+
+
 def searchbar(request):
     search_post = request.GET.get('search')
     if search_post:
-        posts = Blog.objects.filter(Q(title__icontains=search_post) & Q(content__icontains=search_post))
+        posts = Blog.objects.filter(Q(title__icontains=search_post) & Q(category__icontains=search_post))
     else:
         # If not searched, return default posts
         posts = Blog.objects.all().order_by("-date")
