@@ -14,7 +14,7 @@
 
                 <div class="grid-sizer"></div>
                 
-                {% for blog in bloglist %}
+                {% for blog in profile %}
                 <article class="brick entry" data-aos="fade-up">
 
                     <div class="entry__thumb">
@@ -41,7 +41,9 @@
                         <div class="entry__excerpt">
                             <p>{{blog.entryTxt}}</p>
                         </div>
-                        <a class="entry__more-link" href="{% url 'selected_blog' id=blog.id %}">Learn More</a>
+                        <a class="entry__more-link" href="{% url 'edit_blog' id=blog.id %}"><button>Edit</button></a>
+                        <a class="entry__more-link" href="{% url 'delete_blog' id=blog.id %}"><button>Delete</button></a>
+                        
                     </div> <!-- end entry__text -->
                 
                 </article> <!-- end article -->
@@ -56,5 +58,4 @@
     </div> <!-- end s-bricks -->
 
 </section> <!-- end s-content -->
-
 {% endblock %}

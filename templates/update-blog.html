@@ -21,23 +21,23 @@
                             {% csrf_token %}
 
                                 <div class="form-field">
-                                    <input name="title" type="text" id="title" class="h-full-width h-remove-bottom" placeholder="Your Title" >
+                                    <input name="title" type="text" id="title" class="h-full-width h-remove-bottom" placeholder="Your Title" value="{{update_b.title}}">
                                 </div>
 
                                 <div class="form-field">
-                                    <input name="category" type="text" id="category" class="h-full-width h-remove-bottom" placeholder="Your Category"  >
+                                    <input name="category" type="text" id="category" class="h-full-width h-remove-bottom" placeholder="Your Category" value="{{update_b.category}}" >
                                 </div>
 
                                 <div class="form-field">
-                                    <input name="entryTxt" type="text" id="entryTxt" class="h-full-width h-remove-bottom" placeholder="Your Entry Text" >
+                                    <input name="entryTxt" type="text" id="entryTxt" class="h-full-width h-remove-bottom" placeholder="Your Entry Text" value="{{update_b.entryTxt}}" >
                                 </div>
 
                                 <div class="message form-field">
-                                    <textarea name="Desc" id="mytextarea" class="h-full-width" placeholder="Your Description" ></textarea>
+                                    <textarea name="Desc" id="mytextarea" class="h-full-width" placeholder="Your Description" rows="15">{{update_b.Desc}}</textarea>
                                 </div>
 
                                 <div class="form-field">
-                                    <input name="keyword" type="text" id="keyword" class="h-full-width h-remove-bottom" placeholder="Your Keywords"  >
+                                    <input name="keyword" type="text" id="keyword" class="h-full-width h-remove-bottom" placeholder="Your Keywords" value="{{update_b.keyword}}" >
                                 </div>
                                 <br>
                                 <div class="form-field">

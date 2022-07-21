@@ -38,14 +38,16 @@
 
     <!-- header
     ================================================== -->
-    <header class="s-header" style="background-color: black;">
+    <header class="s-header" style="background-color: SlateBlue;">
 
         <div class="s-header__logo">
-            <a class="logo" href="{% url 'index' %}">
-                <img src="{% static 'images/logo.svg' %}" alt="Homepage">
+            <a class="logo" href="{% url 'profile' %}">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/test-account.png"/>
+                <!-- <img src="{% static 'images/logo.png' %}" alt="Homepage"> -->
             </a>
+           
         </div>
-
+       
         <div class="row s-header__navigation">
 
             <nav class="s-header__nav-wrap">
@@ -57,14 +59,9 @@
                     <li class="has-children">
                         <a href="#0" title="">Categories</a>
                         <ul class="sub-menu">
-                            <li><a href="category.html">Design</a></li>
-                            <li><a href="category.html">Lifestyle</a></li>
-                            <li><a href="category.html">Photography</a></li>
-                            <li><a href="category.html">Vacation</a></li>
-                            <li><a href="category.html">Work</a></li>
-                            <li><a href="category.html">Health</a></li>
-                            <li><a href="category.html">Family</a></li>
-                            <li><a href="category.html">Relationship</a></li>
+                            {% for c in category %}
+                            <li><a href="category.html">{{c}}</a></li>
+                            {% endfor %}
                         </ul>
                     </li>
                                        
@@ -76,6 +73,7 @@
                     <li><a href="{% url 'login' %}" title="">Sign-In</a></li>
                     {% endif %}
                 </ul> <!-- end s-header__nav -->
+                
 
                 <a href="#0" title="Close Menu" class="s-header__overlay-close close-mobile-menu">Close</a>
 
@@ -114,8 +112,16 @@
 
     {% block content %}
     {% endblock %}
+    <footer class="s-footer">
+    <div class="s-footer__bottom">
 
-
+        <div class="ss-go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top">
+                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15"><path d="M7.5 1.5l.354-.354L7.5.793l-.354.353.354.354zm-.354.354l4 4 .708-.708-4-4-.708.708zm0-.708l-4 4 .708.708 4-4-.708-.708zM7 1.5V14h1V1.5H7z" fill="currentColor"></path></svg>
+            </a>
+        </div> <!-- end ss-go-top -->
+    </div> <!-- end s-footer__bottom -->
+    </footer>
     <!-- Java Script
     ================================================== -->
     <script src="{% static 'js/jquery-3.5.0.min.js' %}"></script>
