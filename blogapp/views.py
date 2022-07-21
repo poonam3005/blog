@@ -48,6 +48,16 @@ def like_blog(request,id):
         return redirect('selected_blog',id)
         # return HttpResponseRedirect(reverse('selected_blog',args=[str(id)]))
 
+# category
+def category(request,cat):
+    category = Category.objects.all()
+    cat_id = Category.objects.get(category=cat)
+    bloglist = Blog.objects.filter(category=cat_id.id)
+
+    # return HttpResponse("hello  "+cat)
+    return render(request,'category.html',{'bloglist':bloglist,'category':category})
+
+
 # Search Button
 
 def search(request):

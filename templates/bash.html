@@ -57,10 +57,10 @@
                 <ul class="s-header__nav">
                     <li class="current"><a href="{% url 'index' %}" title="">Home</a></li>
                     <li class="has-children">
-                        <a href="#0" title="">Categories</a>
+                        <a href="" title="">Categories</a>
                         <ul class="sub-menu">
                             {% for c in category %}
-                            <li><a href="category.html">{{c}}</a></li>
+                            <li><a href="{% url 'category' cat=c %}">{{c}}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
