@@ -1,0 +1,28 @@
+<div class="s-content__primary">
+    
+    <div class="s-content__page-content">
+        <div class="row block-large-1-2 block-tab-full s-content__blocks">
+            <h3 style="color: white;">You can Upload your Blog here...</h3>
+        </div> <!-- end s-content__blocks -->
+
+        <form name="cForm" id="cForm" class="s-content__form" method="post" enctype = "multipart/form-data">
+            
+            {% csrf_token %}
+
+                
+
+                <div class="form-field">
+                    <input name="category" type="text" id="category" class="h-full-width h-remove-bottom" placeholder="Your Category"  >
+                </div>
+
+
+                <br>
+                <button type="submit" class="submit btn btn--primary h-full-width" >Submit</button>
+
+            
+        </form> <!-- end form -->
+
+    </div> <!-- end s-entry__page-content -->
+
+</div> <!-- end s-content__primary -->
+</article> <!-- end entry -->
