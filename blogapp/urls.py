@@ -8,5 +8,9 @@ urlpatterns = [
     path('logout', views.logoutuser, name='logout' ),
     path('selected_blog/<id>', views.selected_blog,name='selected_blog'),
     path('upload-blog',views.upload_blog,name='upload-blog'),
-    path('like_blog/<int:id>',views.like_blog,name='like_blog')
+    path('search',views.search,name='search'),
+    path('like_blog/<int:id>',views.like_blog,name='like_blog'),
+    path('profile',views.profile,name='profile'),
+    path('edit_blog/<int:id>',views.edit_blog,name='edit_blog'),
+    path('delete_blog/<int:id>',views.delete_blog,name='delete_blog'),
 ]
